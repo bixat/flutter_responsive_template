@@ -1,4 +1,4 @@
-# responsive_template
+# responsive_app_template
 
 ![](./example.gif)
 
