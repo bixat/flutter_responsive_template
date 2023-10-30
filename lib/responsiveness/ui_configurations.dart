@@ -7,33 +7,49 @@ import 'package:responsive_template/responsiveness/home/widgets_config/item_card
 
 class UiConfigurations {
   final BuildContext context;
-  UiConfigurations(this.context) {
-    if (context.isSmall) {
-      home = HomeConfig(color: Colors.yellow, screen: "Small screen");
-      body = BodyConfig(crossAxisCount: 1, childAspectRatio: 3.5);
-      card = ItemCardConfig(
-          color: Colors.yellow, direction: Axis.horizontal, imageFlex: 2);
-      FontSizes.scale = 1.0;
-    } else if (context.isMedium) {
-      home = HomeConfig(color: Colors.green, screen: "Medium screen");
-      body = BodyConfig(crossAxisCount: 2);
-      card = ItemCardConfig(color: Colors.green);
-      FontSizes.scale = 1.2;
-    } else if (context.isLarge) {
-      home = HomeConfig(color: Colors.orange, screen: "Large screen");
-      body = BodyConfig(crossAxisCount: 3);
-      card = ItemCardConfig(color: Colors.orange);
-      FontSizes.scale = 1.4;
-    } else {
-      home = HomeConfig(color: Colors.orange, screen: "Extra Large screen");
-      body = BodyConfig(crossAxisCount: 4);
-      card = ItemCardConfig(color: Colors.orange);
-      FontSizes.scale = 1.6;
-    }
-  }
-
   late HomeConfig home;
   late BodyConfig body;
   late ItemCardConfig card;
   // TODO : Add more item config if needed
+
+  UiConfigurations(this.context) {
+    if (context.isSmall) {
+      _small();
+    } else if (context.isMedium) {
+      _medium();
+    } else if (context.isLarge) {
+      _large();
+    } else {
+      _extraLarge();
+    }
+  }
+
+  void _extraLarge() {
+    home = HomeConfig(color: Colors.orange, screen: "Extra Large screen");
+    body = BodyConfig(crossAxisCount: 4);
+    card = ItemCardConfig(color: Colors.orange);
+    FontSizes.scale = 1.6;
+  }
+
+  void _large() {
+    home = HomeConfig(color: Colors.orange, screen: "Large screen");
+    body = BodyConfig(crossAxisCount: 3);
+    card = ItemCardConfig(color: Colors.orange);
+    FontSizes.scale = 1.4;
+  }
+
+  void _medium() {
+    home = HomeConfig(color: Colors.green, screen: "Medium screen");
+    body = BodyConfig(crossAxisCount: 2);
+    card = ItemCardConfig(color: Colors.green);
+    FontSizes.scale = 1.2;
+  }
+
+  void _small() {
+    home = HomeConfig(color: Colors.yellow, screen: "Small screen");
+    body = BodyConfig(crossAxisCount: 1, childAspectRatio: 3.5);
+    card = ItemCardConfig(
+        color: Colors.yellow, direction: Axis.horizontal, imageFlex: 2);
+    FontSizes.scale = 1.0;
+  }
 }
