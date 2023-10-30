@@ -9,16 +9,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final config = UiConfigurations(context);
+    final config = UiConfigurations(context).home;
     return Scaffold(
-        backgroundColor: config.home.color,
+        backgroundColor: config.color,
         body: Center(
           child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  config.home.screen,
+                  config.screen,
                   style: context.theme.textTheme.displayMedium!
                       .copyWith(fontSize: FontSizes.s48),
                 ),
