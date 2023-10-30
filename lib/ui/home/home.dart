@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_template/constants/styles.dart';
-import 'package:responsive_template/responsiveness/configurations.dart';
+import 'package:responsive_template/responsiveness/ui_configurations.dart';
 import 'package:responsive_template/responsiveness/extensions.dart';
 import 'package:responsive_template/ui/home/widgets/body.dart';
 
