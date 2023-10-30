@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_template/constants/styles.dart';
 import 'package:responsive_template/responsiveness/configurations.dart';
 import 'package:responsive_template/responsiveness/extensions.dart';
+import 'package:responsive_template/ui/home/widgets/body.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,9 +13,18 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: config.home.color,
         body: Center(
-          child: Text(
-            config.home.screen,
-            style: context.theme.textTheme.displayMedium,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  config.home.screen,
+                  style: context.theme.textTheme.displayMedium!
+                      .copyWith(fontSize: FontSizes.s48),
+                ),
+              ),
+              const Expanded(child: Body())
+            ],
           ),
         ));
   }
