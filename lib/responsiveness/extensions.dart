@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_template/responsiveness/breakpoints.dart';
+import 'package:responsive_template/responsiveness/home/home_config.dart';
+import 'package:responsive_template/responsiveness/home/widgets_config/body_config.dart';
+import 'package:responsive_template/responsiveness/ui_configurations.dart';
+
+import 'home/widgets_config/item_card_config.dart';
 
 extension BuildContextExtensions on BuildContext {
   ThemeData get theme => Theme.of(this);
@@ -10,6 +15,10 @@ extension BuildContextExtensions on BuildContext {
   bool get isXLarge => sz.width > Breakpoints.lg;
   bool get fromMed => isMedium || isLarge || isXLarge;
   bool get fromLg => isLarge || isXLarge;
+  UiConfigurations get uiConfig => UiConfigurations(this);
+  BodyConfig get bodyConfig => UiConfigurations(this).body;
+  ItemCardConfig get cardConfig => UiConfigurations(this).card;
+  HomeConfig get homeConfig => UiConfigurations(this).home;
 }
 
 extension Spacers on double {

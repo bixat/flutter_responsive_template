@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_template/constants/styles.dart';
-import 'package:responsive_template/responsiveness/ui_configurations.dart';
+import 'package:responsive_template/responsiveness/extensions.dart';
 import 'package:responsive_template/ui/home/widgets/item_card.dart';
 
 class Body extends StatelessWidget {
@@ -8,7 +8,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final config = UiConfigurations(context).body;
+    final config = context.bodyConfig;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: Insets.med),
       child: GridView.builder(
