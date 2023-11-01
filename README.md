@@ -23,7 +23,6 @@ And you can use ui configuration like this:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:responsive_template/constants/styles.dart';
-import 'package:responsive_template/responsiveness/ui_configurations.dart';
 import 'package:responsive_template/responsiveness/extensions.dart';
 import 'package:responsive_template/ui/home/widgets/body.dart';
 
@@ -32,7 +31,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final config = UiConfigurations(context).home;
+    final config = context.homeConfig;
     return Scaffold(
         backgroundColor: config.color,
         body: Center(
