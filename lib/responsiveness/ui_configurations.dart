@@ -19,9 +19,18 @@ class UiConfigurations {
       _medium();
     } else if (context.isLarge) {
       _large();
-    } else {
+    } else if (context.isXLarge) {
       _extraLarge();
+    } else {
+      _xxLarge();
     }
+  }
+
+  void _xxLarge() {
+    home = HomeConfig(color: Colors.red, screen: "2 Extra Large screen");
+    body = BodyConfig(crossAxisCount: 6);
+    card = ItemCardConfig(color: Colors.red);
+    FontSizes.scale = 1.8;
   }
 
   void _extraLarge() {

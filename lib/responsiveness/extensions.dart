@@ -9,16 +9,20 @@ import 'home/widgets_config/item_card_config.dart';
 extension BuildContextExtensions on BuildContext {
   ThemeData get theme => Theme.of(this);
   Size get sz => MediaQuery.of(this).size;
-  bool get isSmall => sz.width <= Breakpoints.sm;
-  bool get isMedium => sz.width > Breakpoints.sm && sz.width <= Breakpoints.md;
-  bool get isLarge => sz.width > Breakpoints.md && sz.width <= Breakpoints.lg;
-  bool get isXLarge => sz.width > Breakpoints.lg;
+  double get width => sz.width;
+  bool get isSmall => width <= Breakpoints.sm;
+  bool get isMedium => !isSmall && width <= Breakpoints.md;
+  bool get isLarge => !isMedium && width <= Breakpoints.lg;
+  bool get isXLarge => !isLarge && width <= Breakpoints.xl;
+  bool get isXXLarge => !isXLarge && width <= Breakpoints.xxl;
   bool get fromMed => isMedium || isLarge || isXLarge;
-  bool get fromLg => isLarge || isXLarge;
+  bool get fromLg => isLarge || isXLarge || isXXLarge;
+  bool get fromXLg => isXLarge || isXXLarge;
   UiConfigurations get uiConfig => UiConfigurations(this);
   BodyConfig get bodyConfig => UiConfigurations(this).body;
   ItemCardConfig get cardConfig => UiConfigurations(this).card;
   HomeConfig get homeConfig => UiConfigurations(this).home;
+  // TODO: Add more configurations
 }
 
 extension Spacers on double {
